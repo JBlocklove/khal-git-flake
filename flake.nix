@@ -6,9 +6,9 @@
 	};
 
 	outputs = { self, nixpkgs, ... }:
-		let
+	let
 		system = builtins.currentSystem;
-	pkgs = import nixpkgs { inherit system; };
+		pkgs = import nixpkgs { inherit system; };
 	in
 	{
 		packages.${system}.khal = pkgs.python3Packages.buildPythonApplication {
@@ -27,7 +27,7 @@
 			];
 		};
 
-		nixosModules.khal = import ./modules/khal.nix;
+		nixosModules.khal-git = import ./modules/khal-git.nix;
 
 	};
 }

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = [
-    pkgs.khal
+    pkgs.khal-git
   ];
 }
 
