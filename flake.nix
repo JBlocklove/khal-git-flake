@@ -2,7 +2,7 @@
 	description = "Flake for installing khal from Git and enabling via a module";
 
 	inputs = {
-		nixpkgs.url = "github:NixOS/nixpkgs";
+		nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 	};
 
 	outputs = { self, nixpkgs, ... }:
@@ -11,9 +11,9 @@
 		pkgs = import nixpkgs { inherit system; };
 	in
 	{
-		packages.${system}.khal = pkgs.python3Packages.buildPythonApplication {
+		packages.${system}."khal-git" = pkgs.python3Packages.buildPythonApplication {
 			pname = "khal-git";
-			version = "git";
+			version = "git-master";
 			src = pkgs.fetchFromGitHub {
 				owner = "pimutils";
 				repo = "khal";
@@ -26,9 +26,6 @@
 				requests
 			];
 		};
-
-		nixosModules.khal-git = import ./modules/khal-git.nix;
-
 	};
 }
 
