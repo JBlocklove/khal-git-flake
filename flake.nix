@@ -18,6 +18,7 @@
 				owner = "pimutils";
 				repo = "khal";
 				rev = "master";
+				sha256 = "sha256-TADhBlOjhn29DwP7DRLevxpn3//a4Q5OM60EWyMXKxw="
 			};
 			propagatedBuildInputs = with pkgs.python3Packages; [
 				urwid
